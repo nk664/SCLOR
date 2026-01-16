@@ -1,4 +1,10 @@
 import sqlite3
+def  get_user(phone):
+    con = sqlite3.connect("SCHLOR.db")
+    cur = con.cursor()
+    cur.execute("SELECT * FROM  teacher WHERE"(phone, name, email, passward))
+    con.commit()
+    con.close()
 while True:
     print("\n\n========== SCHOLR ===========\n\n")
     
@@ -6,6 +12,7 @@ while True:
     
     print("1. Register your self only for teachers if not registred\n")
     print("2. Login if registred\n")
+    print("3. Logout")
     choice = int(input("Enter your choice:- "))
     
 # registration
@@ -22,16 +29,19 @@ while True:
             if length != 10 or not phone.isdigit():
                  print("enter a valid phone number")
             else:
-                email = input("Enter your mail").strip()
+                email = input("Enter your Email").strip()
                 passward = input("Set your passward").strip()
-                continue
+            break
         
 # login
 
     elif choice == 2:
-        phone = int(input("Enter your phone number"))
-        passward = input("Enter your passward").strip()
+        phone = int(input("Enter your phone number:- "))
+        passward = input("Enter your passward:- ").strip()
+    elif choice == 3:
+        print("Good byy ")
+        break
 
-    elif choice <1 or choice >2:
+    else:
          print("You have entered an invalid choice")
     
